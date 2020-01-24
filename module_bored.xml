@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_bored" default="compile.module.bored">
+  <dirname property="module.bored.basedir" file="${ant.file.module_bored}"/>
+  
+  <property name="module.jdk.home.bored" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.bored" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.bored" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.bored" value="-encoding UTF-8 -source 1.7 -target 1.7 ${compiler.args}"/>
+  
+  <property name="bored.output.dir" value="${module.bored.basedir}/build/classes/production/BORED"/>
+  <property name="bored.testoutput.dir" value="${module.bored.basedir}/build/classes/test/BORED"/>
+  
+  <path id="bored.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="bored.module.production.classpath">
+    <path refid="${module.jdk.classpath.bored}"/>
+  </path>
+  
+  <path id="bored.runtime.production.module.classpath">
+    <pathelement location="${bored.output.dir}"/>
+  </path>
+  
+  <path id="bored.module.classpath">
+    <path refid="${module.jdk.classpath.bored}"/>
+    <pathelement location="${bored.output.dir}"/>
+  </path>
+  
+  <path id="bored.runtime.module.classpath">
+    <pathelement location="${bored.testoutput.dir}"/>
+    <pathelement location="${bored.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.bored">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.bored">
+    <patternset refid="excluded.from.module.bored"/>
+  </patternset>
+  
+  
+  <target name="compile.module.bored" depends="compile.module.bored.production,compile.module.bored.tests" description="Compile module BORED"/>
+  
+  <target name="compile.module.bored.production" depends="register.custom.compilers" description="Compile module BORED; production classes"/>
+  
+  <target name="compile.module.bored.tests" depends="register.custom.compilers,compile.module.bored.production" description="compile module BORED; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.bored" description="cleanup module">
+    <delete dir="${bored.output.dir}"/>
+    <delete dir="${bored.testoutput.dir}"/>
+  </target>
+</project>

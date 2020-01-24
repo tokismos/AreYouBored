@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/home_bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+
+            <ImageView
+        android:id="@+id/poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:src="@drawable/none" />
+
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/rate"
+                android:layout_alignStart="@+id/rate"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/holo_green_light"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/release"
+                android:layout_alignStart="@+id/release"
+                android:layout_below="@+id/title"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/release"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/poster"
+                android:layout_alignStart="@+id/poster"
+                android:layout_below="@+id/rate"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:id="@+id/synop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/release"
+                android:layout_alignStart="@+id/release"
+                android:layout_below="@+id/release"
+                android:layout_marginTop="19dp"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Add to favorites!"
+                android:textAllCaps="true"
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.varunest.sparkbutton.SparkButton
+                android:id="@+id/spark_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:sparkbutton_activeImage="@drawable/ic_star_on"
+                app:sparkbutton_inActiveImage="@drawable/ic_star_off"
+                app:sparkbutton_iconSize="40dp"
+                app:sparkbutton_primaryColor="@color/primary_color"
+                app:sparkbutton_secondaryColor="@color/secondary_color" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
